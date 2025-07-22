@@ -5,11 +5,12 @@ import Footer from './components/Footer'
 import HeroSection from './components/HeroSection'
 
 function App() {
+  const [userName,setUserName] = useState("aradhyacp")
 
   return (
     <div className="">
-      <Header/>
-      <HeroSection/>
+      <Header setUserName={setUserName}/>
+      <HeroSection userName={userName}/>
       <Footer/>
     </div>
   )
