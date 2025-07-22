@@ -7,7 +7,7 @@ const Header = () => {
     console.log("Search submitted:", userName);
   };
   return (
-    <div className="flex bg-white px-30 py-4 border-b-2 border-[#f4ede7] flex-row items-center justify-between">
+    <div className="flex bg-white px-10 py-4 border-b-2 border-[#f4ede7] flex-row items-center justify-between sticky top-0">
       <div className="flex gap-3">
         <div className="size-6">
           <svg
