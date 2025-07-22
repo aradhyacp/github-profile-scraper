@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 
-const Header = () => {
-    const [userName,setUserName] = useState("")
+const Header = ({setUserName}) => {
+    const [inputValue, setInputValue] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault(e);
-    console.log("Search submitted:", userName);
+    console.log("Search submitted:", inputValue);
+    setUserName(inputValue)
   };
   return (
     <div className="flex bg-white px-10 py-4 border-b-2 border-[#f4ede7] flex-row items-center justify-between sticky top-0">
@@ -32,13 +34,14 @@ const Header = () => {
         <input
           type="text"
           placeholder="Enter Username here"
-          value={userName}
-          onChange={(e)=>{
-            setUserName(e.target.value)
-          }}
+          value={inputValue}
+          onChange={(e)=>
+            setInputValue(e.target.value)
+          }
           className="px-4 py-2 rounded-md focus:outline-none border-2 border-[#f4ede7] focus:border-gray-400 focus:border-2"
         />
-        <button className="bg-[#f4ede7] font-bold cursor-pointer rounded-lg p-3 hover:bg-[#f38524] hover:text-white">
+        <button className="bg-[#f4ede7] font-bold cursor-pointer rounded-lg p-3 hover:bg-[#f38524] hover:text-white" type="submit"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20px"
