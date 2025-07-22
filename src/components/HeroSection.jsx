@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import useGithubData from "../hooks/useGithubData";
 
 const HeroSection = ({ userName }) => {
-  const { userData } = useGithubData(userName);
+  const { userData, userRepoList } = useGithubData(userName);
   useEffect(() => {
     console.log(userData);
   });
@@ -54,6 +54,37 @@ const HeroSection = ({ userName }) => {
           </div>
         </div>
         <div className="font-black text-3xl">Repositories</div>
+        <table className="flex-1">
+  <thead>
+    <tr className="bg-[#fcfaf8] border border-b-0 border-[#e8dace] rounded-xl">
+      <th className="px-4 py-3 text-left text-[#1c140d] w-[400px] text-sm font-medium leading-normal">Name</th>
+      <th className="px-4 py-3 text-left text-[#1c140d] w-[400px] text-sm font-medium leading-normal">Description</th>
+      <th className="px-4 py-3 text-left text-[#1c140d] w-60 text-sm font-medium leading-normal">Language</th>
+      <th className="px-14 flex justify-center py-3 text-left text-[#1c140d] w-[400px] text-sm font-medium leading-normal">Last Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    {userRepoList.map((repo) => (
+      <tr key={repo.id} className="border border-[#e8dace]">
+        <td className="h-[72px] px-4 py-2 w-[400px] text-[#1c140d] text-sm font-normal leading-normal">
+          {repo.name}
+        </td>
+        <td className="h-[72px] px-4 py-2 w-[500px] text-[#9c7049] text-sm font-normal leading-normal">
+          {repo.description || "No description"}
+        </td>
+        <td className="h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+          <div className="flex min-w-[84px] max-w-[480px] items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#f4ede7] text-[#1c140d] text-sm font-medium leading-normal w-full">
+            <span className="truncate">{repo.language || "N/A"}</span>
+          </div>
+        </td>
+        <td className="h-[72px] flex justify-center px-14 py-2 w-[400px] text-[#9c7049] text-sm font-normal leading-normal">
+          {repo.updated_at}
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
       </div>
     </div>
   );
