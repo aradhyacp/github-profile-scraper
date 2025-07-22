@@ -1,12 +1,56 @@
-# React + Vite
+# GitHub Profile Scraper
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean and modern single-page application (SPA) built with **React** and **Tailwind CSS** that allows users to search and view detailed GitHub profile information using the GitHub API.
 
-Currently, two official plugins are available:
+<br/>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- 🔎 Search for any GitHub user by username
+- 👤 View user details: avatar, name, bio, ID, join date, and more
+- 📊 Display public stats: repositories, followers, following, and gists
+- 📁 List of public repositories with:
+  - Repository name
+  - Description
+  - Primary language
+  - Last updated date
+- 🌐 Direct links to GitHub profile and follow page
+- 💡 Clean UI with aesthetic white background and orange accents
+- 🚀 Optimized with custom hooks for data fetching
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<br/>
+
+## 🧰 Tech Stack
+
+- **React**
+- **React Router DOM**
+- **Tailwind CSS**
+- **GitHub REST API (v3)**
+
+
+<br/>
+
+## 📦 Installation & Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone git@github.com:aradhyacp/github-profile-scraper.git
+   cd github-profile-scraper
+   ```
+2. **Install dependencies**
+    ```
+    npm i
+    ```
+3. **Start the development server**
+    ```
+    npm run dev
+    ```
+
+<br/>
+
+## 🧪 Development Notes
+- The project uses a custom hook useGithubData to fetch both user data and repositories.
+
+- The username entered in the input (inside Header.jsx) is passed down to HeroSection.jsx for rendering data.
+
+- The GitHub API has rate limits for unauthenticated requests. For production, consider using a personal access token stored securely in environment variables.
